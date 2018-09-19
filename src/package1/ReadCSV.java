@@ -1,7 +1,10 @@
 package package1;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,20 +15,25 @@ public class ReadCSV extends LinReg{
 		
 		ArrayList <String> temp = new ArrayList<String>();
 		
-		URL url = getClass().getResource(name);
-		File file = new File(url.getPath());
-        Scanner scanner = new Scanner(file);
-        
-        scanner.useDelimiter(",");
-        
-        while(scanner.hasNext()){
-        	temp.add(scanner.next());
+        String csvFile = name;
+        String line = "";
+        String cvsSplitBy = ",";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+
+            while ((line = br.readLine()) != null) {
+
+                // use comma as separator
+                String[] country = line.split(cvsSplitBy);
+
+                System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        
-        scanner.close();
-        System.out.println(Arrays.toString(temp.toArray()));
-        
-        return temp;
+		return temp;
     }
 	
 	public ArrayList<Double> parseXDATA(ArrayList<String> array){
@@ -33,5 +41,5 @@ public class ReadCSV extends LinReg{
 		
 		return null;
 	}
-	
 }
+
