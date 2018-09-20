@@ -2,31 +2,27 @@ package package1;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
-public class ReadCSV extends LinReg{
-	public ArrayList <String> readCSV(String name) throws FileNotFoundException {
-		File file = new File(name);
+import javax.print.DocFlavor.URL;
+
+public class testClass {	
+	public static void main(String[] args) {
+
+		File file = new File("GOOG.csv");
 		
         String line = "";
         String cvsSplitBy = ",";
 
-        ArrayList<String> temp = new ArrayList<String>();
-        
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-        	
+
             while ((line = br.readLine()) != null) {
 
                 // use comma as separator
                 String[] array = line.split(cvsSplitBy);
     	        for(String i:array) {
-    	        	temp.add(i);
+    	        	System.out.println(i);
     	        }
             }
 
@@ -34,12 +30,6 @@ public class ReadCSV extends LinReg{
             e.printStackTrace();
         }
         
-        return temp;
-	}
-	public ArrayList<Double> parseXDATA(ArrayList<String> array){
-		
-		
-		return null;
+
 	}
 }
-
