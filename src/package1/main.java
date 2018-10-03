@@ -6,7 +6,7 @@ import java.util.*;
 public class main{
 	public static void main(String[] args) throws FileNotFoundException{
 		DataObj google = new DataObj("GOOG.csv");
-		
+		System.out.println(google.toString());
 	}
 }
 

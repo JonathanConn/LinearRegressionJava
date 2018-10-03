@@ -9,11 +9,11 @@ public class DataObj extends ReadCSV{
 	public static int size = 0;
 	
 	//x and y axis data
-	private static ArrayList <Double> xData = new ArrayList<Double>();
-	private static ArrayList<Double> yData = new ArrayList<Double>();
+	private static ArrayList <Double> timeData = new ArrayList<Double>();
+	private static ArrayList<Double> closeData = new ArrayList<Double>();
 	
 	//unparrsed data
-	private static ArrayList<String> zData = new ArrayList<String>();
+	private static ArrayList<String> allData = new ArrayList<String>();
 	
 	//linreg formula
 	String formula = "";
@@ -29,18 +29,18 @@ public class DataObj extends ReadCSV{
 		size = x;
 	}
 	
-	public ArrayList<Double> getXDATA(){
-		return xData;
+	public ArrayList<Double> gettimeData(){
+		return timeData;
 	}
-	public void setXDATA(ArrayList<Double> xarray) {
-		xarray.addAll(xData);
+	public void settimeData(ArrayList<Double> xarray) {
+		xarray.addAll(timeData);
 	}
 	
-	public ArrayList<Double> getYDATA(){
-		return yData;
+	public ArrayList<Double> getcloseData(){
+		return closeData;
 	}
-	public void setYDATA(ArrayList<Double> yarray) {
-		yarray.addAll(yData);
+	public void setcloseData(ArrayList<Double> yarray) {
+		yarray.addAll(closeData);
 	}
 	
 	public String getFormula() {
@@ -57,7 +57,9 @@ public class DataObj extends ReadCSV{
 		file = x;
 	}
 	
-	
+	public String toString() {
+		return getFormula();
+	}
 	
 	
 	//------------------------------------------------------------
@@ -65,9 +67,11 @@ public class DataObj extends ReadCSV{
 	
 	public DataObj(String fileName) throws FileNotFoundException {
 		setFile(fileName);
-		zData = readCSV(file);
-		xData = parseXDATA(zData);
-	//	yData = parseYDATA(zDATA);
+		allData = readCSV(file);
+		timeData = parseTimeDATA(allData);
+		closeData = parseCloseDATA(allData);
+		
+		
 	}
 	
 	

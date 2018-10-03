@@ -36,7 +36,30 @@ public class ReadCSV extends LinReg{
         
         return temp;
 	}
-	public ArrayList<Double> parseXDATA(ArrayList<String> array){
+	public ArrayList<Double> parseTimeDATA(ArrayList<String> array){
+		
+		//remove first 6 elements
+		for(int i = 0; i <= 6;i++)array.remove(0);
+		
+//		for(String i: array) {
+//			if(i.equals('-')) {
+//				
+//			}
+//		}
+		
+//		ArrayList<Double> temp = new ArrayList<Double>();
+//		for(int i = 0; i <= array.size(); i++) {
+//			if( i % 7 == 0) {temp.add(null)};
+//		}
+		
+		System.out.println(array);
+		
+		return null;
+	}
+	public ArrayList<Double> parseCloseDATA(ArrayList<String> array){
+		//remove first 6 elements
+		for(int i = 0; i <= 6;i++)array.remove(0);
+		
 		
 		
 		return null;
