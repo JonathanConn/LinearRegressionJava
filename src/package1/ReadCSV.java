@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class ReadCSV extends LinReg{
@@ -41,16 +42,12 @@ public class ReadCSV extends LinReg{
 		//remove first 6 elements
 		for(int i = 0; i <= 6;i++)array.remove(0);
 		
-//		for(String i: array) {
-//			if(i.equals('-')) {
-//				
-//			}
-//		}
-		
-//		ArrayList<Double> temp = new ArrayList<Double>();
-//		for(int i = 0; i <= array.size(); i++) {
-//			if( i % 7 == 0) {temp.add(null)};
-//		}
+		for(Iterator<String> it = array.iterator(); it.hasNext();) {
+			String data = it.next();
+			if (! data.contains("-")) {
+				it.remove();
+		    }
+		}
 		
 		System.out.println(array);
 		

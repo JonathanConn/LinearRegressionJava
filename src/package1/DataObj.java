@@ -69,7 +69,7 @@ public class DataObj extends ReadCSV{
 		setFile(fileName);
 		allData = readCSV(file);
 		timeData = parseTimeDATA(allData);
-		closeData = parseCloseDATA(allData);
+//		closeData = parseCloseDATA(allData);
 		
 		
 	}
