@@ -57,7 +57,7 @@ public class ReadCSV extends LinReg{
 		//remove first 6 elements
 		for(int i = 0; i <= 6;i++)array.remove(0);
 		
-		
+		//test
 		
 		return null;
 	}
